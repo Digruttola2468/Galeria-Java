@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,11 +21,12 @@ public class Principales extends JFrame implements ActionListener{
 
     public Principales() {
         setLayout(new BorderLayout());
-        setSize(100,200);
+        setSize(200,200);
         setLocationRelativeTo(null);
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Galeria");
+        setIconImage(new ImageIcon(getClass().getResource("./img/imagelogo.png")).getImage());
 
         JButton button = new JButton("File Choose");
         button.setActionCommand("command");
@@ -59,7 +61,7 @@ public class Principales extends JFrame implements ActionListener{
         enableButtons(false);
     }
 
-	@Override
+    @Override
 	public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("command")){
             int valresult = fileChooser.showOpenDialog(this);
@@ -93,8 +95,7 @@ public class Principales extends JFrame implements ActionListener{
                 contador = 0;
             loadImage(ficheros);
         }
-    }
-
+	}
     private void loadImage(ArrayList<File> rutas){
         Icon imageIcon = new ImageIcon(rutas.get(contador).getAbsolutePath());
         lb_label.setIcon(imageIcon);
