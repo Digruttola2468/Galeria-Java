@@ -41,6 +41,8 @@ public class Principales extends JFrame implements ActionListener{
         jbBack.setActionCommand("back");
         jbBack.addActionListener(this);
 
+        lb_label = new JLabel();
+
         fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
@@ -49,16 +51,14 @@ public class Principales extends JFrame implements ActionListener{
         panel.add(jbBack);
         panel.add(jbNext);
 
-        add(panel,BorderLayout.PAGE_END);
-
-        lb_label = new JLabel();
-
         jPanel = new JPanel();
         jPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         jPanel.add( lb_label );
         add(jPanel, BorderLayout.CENTER);
 
         enableButtons(false);
+
+        add(panel,BorderLayout.PAGE_END);
     }
 
     @Override
